@@ -1,0 +1,21 @@
+{% extends "main/header.html" %}
+{% load crispy_forms_tags %}
+{%block title%} | Contacteer ons {%endblock%}
+{%block content%}
+
+<h1 style="color: rgb(50, 4, 253);">Contacteer ons...</h1>
+<br/>
+<div class="form-group" style="color: rgb(50, 4, 253);">
+ 
+ 
+
+        <form method="post" action=".">
+            {% csrf_token %} 
+            {{ form|crispy  }}
+            <!--{{ form.as_p }}-->
+
+            <button class ="btn btn-secondary">Verzend</button>
+        </form>
+    </body>
+
+{%endblock%}

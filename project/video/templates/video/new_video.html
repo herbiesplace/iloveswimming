@@ -1,0 +1,21 @@
+{% extends "main/header.html" %}
+{% load crispy_forms_tags %}
+{%block title%} | Nieuwe Video {%endblock%}
+{%block content%}
+<div class="container">
+    <h1 class="text-center mt-3 mb-3">Nieuwe video voor analyse opladen</h1><hr>
+    <p>Gelieve hier uw zwem video(s) op te laden die u wenst te laten analyseren, de video mag niet groter zijn dan 10 MB</p>
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Een nieuwe video opladen voor analyse</legend>
+                {{ form|crispy }}
+                {{ form.media }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btncolor mt-3 mb-2" type="submit">Opladen</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

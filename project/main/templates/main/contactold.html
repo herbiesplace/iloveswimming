@@ -1,0 +1,48 @@
+{% extends "main/header.html" %}
+{% block title%} | Contacteer ons {%endblock%}
+ 
+{% block content %}
+
+<br class="row media content-section mobiledevice">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="text-center">
+            <div>
+                <h1 class="title-style">Contacteer ons?</h1>
+                <h2 class="subtitle-style">Heeft u opmerkingen, vragen, suggesties, laat het ons dan snel weten met onderstaand formulier</h2>
+            
+            </div>
+        </div>
+
+             
+        </div>
+    </div>
+<form method="POST" class="row g-3">
+  {% csrf_token %}
+  <div class="col-md-6">
+    <label for="firstname" class="form-label">Voornaam</label>
+    <input type="text" class="form-control" id="firstname">
+  </div>
+  <div class="col-md-6">
+    <label for=lastname" class="form-label">Naam</label>
+    <input type="text" class="form-control" id="lastname">
+  </div>
+    <div class="col-12">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+     
+
+    <div class="col-12">
+      <label for="content" class="form-label">Informatie</label>
+      <textarea class="form-control" id="content" rows="10"></textarea>
+    </div>
+
+
+ 
+ 
+
+    <div class="col-12 mb-5" >
+      <button type="submit" class="btn btn-primary">Versturen</button>
+    </div>
+  </form>
+  {% endblock content %}

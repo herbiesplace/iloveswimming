@@ -1,0 +1,49 @@
+{% extends "main/header.html" %}
+{%block title%} | Video {%endblock%}
+{%block content%}
+<div class="container">
+    <h1 class="text-center mt-3 mb-3">Overzicht van uw opgeladen videos...</h1><hr>
+    
+     
+<div class="row row-cols-2 row-cols-md-3 g-3">
+     
+    {% for video in videos %}
+     
+    {% if video.author == user %}
+    <div class="col">
+         
+      <div class="card ">
+        <div class="card-header">
+            {{video.titel}}
+        </div>
+        <div class="card-body text-primary">
+            <p class="card-text"><small class="text-muted" >{{video.created_date}}</small></p>
+            <p class="card-text">{{video.beschrijving}}
+            <video class=" card-img-bottom"     controls muted>
+                <source src="{{video.video.url}}" type="video/mp4">
+            </video></p>
+             
+        </div>
+        <div class="card-footer">
+            {% for analyse in analyses %}
+            {% if video == analyse.video %}
+            <p><strong>Evaluatie:</strong> {{analyse.evaluatie}}</p>
+            <p><strong>Suggestie:</strong> {{analyse.suggestie}}</p>
+            <p class="small text-primary">{{analyse.created_date}}</p> 
+            {%endif %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+    {%endif%} 
+    {% endfor %}
+    
+    
+  
+     
+  </div></br>
+
+  <a href="{% url 'newvideo'%}" class="btn btncolor mb-5" type="submit">Nieuwe video opladen</a>
+ 
+</div>
+{% endblock content %}
